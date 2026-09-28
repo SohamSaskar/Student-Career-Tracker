@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dt-page: #F5F6F7;
+  --color-dt-card: #FFFFFF;
+  --color-dt-elevated: #FFFFFF;
+  --color-dt-secondary-card: #ECEFF1;
+  --color-dt-soft: #F1F3F4;
+  --color-dt-input: #FFFFFF;
+
+  --color-dt-primary: #14181C;
+  --color-dt-secondary: #2F363D;
+  --color-dt-muted: #4A535C;
+  --color-dt-subtle: #4A535C;
+
+  --color-dt-navy: #2B333B;
+  --color-dt-navy-hover: #1B2026;
+  --color-dt-navy-active: #14181C;
+
+  --color-dt-action: #ECEFF1;
+  --color-dt-action-hover: #F1F3F4;
+  --color-dt-action-active: #E4E8EC;
+
+  --color-dt-success: #17573F;
+  --color-dt-success-bg: #E3F1EA;
+
+  --color-dt-danger: #8F2F2B;
+  --color-dt-danger-bg: #F8E3E2;
+
+  --color-dt-warning: #6F4708;
+  --color-dt-warning-bg: #F8EBD5;
+
+  --color-dt-info: #1F5570;
+  --color-dt-info-bg: #E1EEF3;
+
+  --color-dt-border: #6E7781;
+  --color-dt-border-strong: #57606A;
+  --color-dt-border-hover: #3F4954;
+  --color-dt-divider: #CDD3D8;
+
+  --font-sans: var(--font-plus-jakarta), system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-mono: var(--font-jetbrains), monospace;
+
+  --radius-input: 8px;
+  --radius-button: 8px;
+  --radius-card: 12px;
+  --radius-container: 14px;
+}
+
+:root {
+  --bg-page: #F5F6F7;
+  --bg-card: #FFFFFF;
+  --bg-secondary-card: #ECEFF1;
+  --bg-elevated: #FFFFFF;
+  --bg-input: #FFFFFF;
+  --text-primary: #14181C;
+  --text-secondary: #2F363D;
+  --text-muted: #4A535C;
+  --text-subtle: #4A535C;
+  --color-navy: #2B333B;
+  --color-border: #6E7781;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+}
+
+/* GPU hardware acceleration helper */
+.gpu-accelerate {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Tactile press effect */
+.tactile-press {
+  transition: transform 100ms cubic-bezier(0.16, 1, 0.3, 1), background-color 150ms ease, border-color 150ms ease;
+}
+
+.tactile-press:active {
+  transform: scale(0.98);
+}
+
+/* Card hover physics */
+.card-hover {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-1px);
+  border-color: #3F4954;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F6F7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6E7781;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3F4954;
+}
+
+/* Focus outline accessibility - 2px solid #14181C ring with 2px offset */
+*:focus-visible {
+  outline: 2px solid #14181C;
+  outline-offset: 2px;
+}
+
+/* Dynamic Black & Dark Purple Gradient Button Animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .tactile-press:active {
+    transform: none !important;
+  }
+
+  .card-hover:hover {
+    transform: none !important;
+  }
+}
+
+/* Hide Next.js dev overlay indicator icon permanently */
+nextjs-portal,
+[data-nextjs-toast],
+[data-nextjs-dialog-overlay],
+div[class*="nextjs-portal"],
+button[aria-label="Next.js Dev Tools"],
+[data-nextjs-dev-tools-button] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+

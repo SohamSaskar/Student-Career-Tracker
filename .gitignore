@@ -1,0 +1,27 @@
+# Compiled class files & build outputs
+*.class
+out/
+target/
+build/
+sources.txt
+
+# Local database configuration & secrets
+db.properties
+.env
+!db.properties.example
+
+# IDE & Editor files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+
+# User file uploads (preserve folder via .gitkeep)
+uploads/*
+!uploads/.gitkeep
+
+# System & OS generated files
+.DS_Store
+Thumbs.db
+*.log
